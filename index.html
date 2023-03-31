@@ -8,6 +8,10 @@
     </head>
 
     <style>
+
+    /*  Soll eigentlich die Schrift sein
+        https://fonts.google.com/specimen/Open+Sans?query=open+san */
+
         @font-face {
         font-family: "Gingham Variable";
         src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Gingham.woff2")
@@ -18,8 +22,8 @@
         font-stretch: 1% 150%;
     }
     :root {
-    --clr-black: #000000;
-    --clr-white: #f2f2f2;
+        --clr-black: #000000;
+        --clr-white: #f2f2f2;
     }
 
     body {
@@ -134,6 +138,19 @@
         font-variation-settings: "wght" 300;
     }
 
+    /** YPOS SUN **/
+    .wrapper-gradient {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--clr-black);
+        background: var(--clr-white); /** fallback **/
+
+        /** https://codepen.io/lsammarco/pen/waMpJw **/
+        }
+
     </style>
 
     <body>
@@ -158,11 +175,26 @@
         <div class="wrapper-white">
             <div class="ypos">yPos Mouse</div>
         </div>
+        <div class="wrapper-gradient">
+            <div class="ypos">yPos sun</div>
+        </div>
         
     </body>
 </html>
 
     <script>
+        // https://codepen.io/lsammarco/pen/waMpJw
+
+        $(document).mousemove(function(event) {
+        windowHeight = $(window).height();
+        
+        mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+        
+        $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseYpercentage + '%, #fff, #000)');
+        });
+
+        // https://abcdinamo.com/news/using-variable-fonts-on-the-web
+
         function updateText(e) {
             multiplierWidth = e.offsetX / window.innerWidth;
             multiplierHeight = e.offsetY / window.innerHeight;
