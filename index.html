@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Variable Type Test</title>        
+    </head>
+
+    <style>
+        @font-face {
+        font-family: "Gingham Variable";
+        src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Gingham.woff2")
+                format("woff2"),
+            url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Gingham.woff")
+                format("woff");
+        font-weight: 10 700;
+        font-stretch: 1% 150%;
+    }
+
+    body {
+        margin: 0;
+        font-size: 10vh;
+        text-align: center;
+        font-family: "Gingham Variable", sans-serif;
+    }
+
+    .wrapper {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cssanimation {   
+        font-weight: 200;
+        animation: weightanimation 1s infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes weightanimation {
+        0%{
+            font-weight: 200;
+        }
+        100%{
+            font-weight: 700;
+        }
+    }
+
+    .xposanimation {
+        color: white;
+        cursor: pointer;
+        font-variation-settings: "wght" 100;
+    }
+
+    </style>
+
+    <body>
+        <div class="wrapper">
+            <div class="cssanimation">CSS Animation</div>
+        </div>
+        <div class="wrapper" style="background-color: black;">
+            <div class="xposanimation">Mouse position</div>
+        </div>
+            
+    </body>
+
+    <script>
+        function updateText(e) {
+            multiplierWidth = e.offsetX / window.innerWidth;
+            multiplierHeight = e.offsetY / window.innerHeight;
+            randomWeight =  multiplierWidth * (200 - 35) + 35;
+            randomWidth =  multiplierHeight * (200 - 100) + 100;
+            xposanimation.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
+            }
+
+            window.addEventListener("mousemove", updateText)
+    </script>
