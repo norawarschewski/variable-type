@@ -17,6 +17,10 @@
         font-weight: 10 700;
         font-stretch: 1% 150%;
     }
+    :root {
+    --clr-black: #000000;
+    --clr-white: #f2f2f2;
+    }
 
     body {
         margin: 0;
@@ -25,7 +29,7 @@
         font-family: "Gingham Variable", sans-serif;
     }
 
-    .wrapper {
+    .wrapper-white, .wrapper-black {
         width: 100vw;
         height: 50vh;
         display: flex;
@@ -33,13 +37,25 @@
         align-items: center;
     }
 
-    .cssanimation {   
+    .wrapper-white {
+        background-color: var(--clr-white);
+        color: var(--clr-black);
+    }
+
+    .wrapper-black {
+        background-color: var(--clr-black);
+        color: var(--clr-white);
+    }
+
+    /* WEIGHT ANIMATION */
+
+    .wght {   
         font-weight: 200;
-        animation: weightanimation 1s infinite;
+        animation: wght 3s infinite;
         animation-direction: alternate;
     }
 
-    @keyframes weightanimation {
+    @keyframes wght {
         0%{
             font-weight: 200;
         }
@@ -48,22 +64,101 @@
         }
     }
 
-    .xposanimation {
-        color: white;
+    /* WIDTH ANIMATION */
+
+    .wdth {   
+        font-variation-settings: "wdth" 300;
+        animation: wdth 3s infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes wdth {
+        from {
+            font-variation-settings: "wdth" 5;
+        }
+        to {
+            font-variation-settings: "wdth" 150;
+        }
+    }
+
+    /* WEIGHT + WIDTH ANIMATION */
+
+    .wghtwdth {   
+        font-variation-settings: "wght" 100, "wdth" 100;
+        animation: wghtwdth 3s infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes wghtwdth {
+        from {
+            font-variation-settings: "wght" 200, "wdth" 5;
+        }
+        to {
+            font-variation-settings: "wght" 700, "wdth" 100;
+        }
+    }
+
+    /* WEIGHT HOVER ANIMATION */
+    .wght-hover {
         cursor: pointer;
-        font-variation-settings: "wght" 100;
+        font-variation-settings: "wght" 200;
+        transition: font-variation-settings 0.3s ease;
+    }
+
+    .wght-hover:hover {
+        font-variation-settings: "wght" 700;
+    }
+
+    /* WEIGHT ITALIC HOVER ANIMATION */
+    .wghtital-hover {
+        cursor: pointer;
+        font-variation-settings: "wght" 200, "ital" 0;
+        transition: font-variation-settings 0.3s ease;
+    }
+
+    .wghtital-hover:hover {
+        font-variation-settings: "wght" 700, "ital" 6;
+    }
+
+    /* XPOS ANIMATION */
+
+    .xpos {
+        cursor: pointer;
+        font-variation-settings: "wght" 300;
+    }
+
+    /* YPOS ANIMATION */
+
+    .ypos {
+        cursor: pointer;
+        font-variation-settings: "wght" 300;
     }
 
     </style>
 
     <body>
-        <div class="wrapper">
-            <div class="cssanimation">CSS Animation</div>
+        <div class="wrapper-white">
+            <div class="wght">Weight</div>
         </div>
-        <div class="wrapper" style="background-color: black;">
-            <div class="xposanimation">Mouse position</div>
+        <div class="wrapper-black">
+            <div class="wdth">Big Stretchies</div>
         </div>
-            
+        <div class="wrapper-white">
+            <div class="wghtwdth">Weight and Width</div>
+        </div>
+        <div class="wrapper-black">
+            <div class="wght-hover">Weight Hover</div>
+        </div>
+        <div class="wrapper-white">
+            <div class="wghtital-hover">Weight and Italic Hover</div>
+        </div>
+        <div class="wrapper-black">
+            <div class="xpos">xPos Mouse</div>
+        </div>
+        <div class="wrapper-white">
+            <div class="ypos">yPos Mouse</div>
+        </div>
+        
     </body>
 
     <script>
@@ -72,7 +167,7 @@
             multiplierHeight = e.offsetY / window.innerHeight;
             randomWeight =  multiplierWidth * (200 - 35) + 35;
             randomWidth =  multiplierHeight * (200 - 100) + 100;
-            xposanimation.style.fontVariationSettings = "\"wght\" " + randomWeight + ", \"wdth\" " + randomWidth;
+            xpos.style.fontVariationSettings = "\"wght\" " + randomWeight;
             }
 
             window.addEventListener("mousemove", updateText)
