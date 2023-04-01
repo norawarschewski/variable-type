@@ -141,12 +141,14 @@
     /** YPOS SUN **/
     .wrapper-gradient {
         width: 100vw;
-        height: 10vh;
+        height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
         color: var(--clr-black);
-        background: var(--clr-white); /** fallback **/
+        background: var(--clr-white); /* fallback */
+        background: radial-gradient( at center, #fff, #000);
+        
 
         /** https://codepen.io/lsammarco/pen/waMpJw **/
         }
@@ -176,7 +178,7 @@
             <div class="ypos">yPos Mouse</div>
         </div>
         <div class="wrapper-gradient">
-            <div class="ypos">yPos Rising Sun</div>
+            <div class="ypos">yPos Gradient + Weight</div>
         </div>
         
     </body>
@@ -190,18 +192,18 @@
         
         mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
         
-        $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseYpercentage + '%, #fff, #000)');
+        $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseYpercentage + '%, #fff, #000)');
         });
 
         // https://abcdinamo.com/news/using-variable-fonts-on-the-web
 
-        function updateText(e) {
-            multiplierWidth = e.offsetX / window.innerWidth;
-            multiplierHeight = e.offsetY / window.innerHeight;
-            randomWeight =  multiplierWidth * (200 - 35) + 35;
-            randomWidth =  multiplierHeight * (200 - 100) + 100;
-            xpos.style.fontVariationSettings = "\"wght\" " + randomWeight;
-            }
+        // function updateText(e) {
+        //     multiplierWidth = e.offsetX / window.innerWidth;
+        //     multiplierHeight = e.offsetY / window.innerHeight;
+        //     randomWeight =  multiplierWidth * (200 - 35) + 35;
+        //     randomWidth =  multiplierHeight * (200 - 100) + 100;
+        //     xpos.style.fontVariationSettings = "\"wght\" " + randomWeight;
+        //     }
 
-            window.addEventListener("mousemove", updateText)
+        //     window.addEventListener("mousemove", updateText)
     </script>
