@@ -52,7 +52,6 @@
     }
 
     /* WEIGHT ANIMATION */
-
     .wght {   
         font-weight: 200;
         animation: wght 3s infinite;
@@ -69,7 +68,6 @@
     }
 
     /* WIDTH ANIMATION */
-
     .wdth {   
         font-variation-settings: "wdth" 300;
         animation: wdth 3s infinite;
@@ -86,7 +84,6 @@
     }
 
     /* WEIGHT + WIDTH ANIMATION */
-
     .wghtwdth {   
         font-variation-settings: "wght" 100, "wdth" 100;
         animation: wghtwdth 3s infinite;
@@ -125,20 +122,18 @@
     }
 
     /* XPOS ANIMATION */
-
     .xpos {
         cursor: pointer;
         font-variation-settings: "wght" 300;
     }
 
     /* YPOS ANIMATION */
-
     .ypos {
         cursor: pointer;
         font-variation-settings: "wght" 300;
     }
 
-    /** YPOS SUN **/
+    /** YPOS RISING SUN **/
     .wrapper-gradient {
         width: 100vw;
         height: 50vh;
@@ -148,10 +143,7 @@
         color: var(--clr-black);
         background: var(--clr-white); /* fallback */
         background: radial-gradient( at center, #fff, #000);
-        
-
-        /** https://codepen.io/lsammarco/pen/waMpJw **/
-        }
+    }
 
     </style>
 
@@ -188,11 +180,13 @@
         // https://codepen.io/lsammarco/pen/waMpJw
 
         $(document).mousemove(function(event) {
+        windowWidth = $(window).width();
         windowHeight = $(window).height();
         
+        mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
         mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
         
-        $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseYpercentage + '%, #fff, #000)');
+        $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #fff, #000)');
         });
 
         // https://abcdinamo.com/news/using-variable-fonts-on-the-web
