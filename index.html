@@ -160,13 +160,13 @@
         <div class="wrapper-black">
             <div class="wght-hover">Weight Hover</div>
         </div>
-        <div class="wrapper-white">
+        <!-- <div class="wrapper-white">
             <div class="wghtital-hover">Weight and Italic Hover</div>
-        </div>
-        <div class="wrapper-black">
+        </div> -->
+        <div class="wrapper-white">
             <div class="xpos">xPos Mouse</div>
         </div>
-        <div class="wrapper-white">
+        <div class="wrapper-black">
             <div class="ypos">yPos Mouse</div>
         </div>
         <div class="wrapper-gradient">
@@ -177,8 +177,6 @@
 </html>
 
     <script>
-        // https://codepen.io/lsammarco/pen/waMpJw
-
         $(document).mousemove(function(event) {
         windowWidth = $(window).width();
         windowHeight = $(window).height();
@@ -188,16 +186,4 @@
         
         $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #fff, #000)');
         });
-
-        // https://abcdinamo.com/news/using-variable-fonts-on-the-web
-
-        // function updateText(e) {
-        //     multiplierWidth = e.offsetX / window.innerWidth;
-        //     multiplierHeight = e.offsetY / window.innerHeight;
-        //     randomWeight =  multiplierWidth * (200 - 35) + 35;
-        //     randomWidth =  multiplierHeight * (200 - 100) + 100;
-        //     xpos.style.fontVariationSettings = "\"wght\" " + randomWeight;
-        //     }
-
-        //     window.addEventListener("mousemove", updateText)
     </script>
