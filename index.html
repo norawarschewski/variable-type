@@ -172,18 +172,18 @@
         <div class="wrapper-gradient">
             <div class="ypos">yPos Gradient + yPos Weight</div>
         </div>
-        
+
+        <script>
+            $(document).mousemove(function(event) {
+            windowWidth = $(window).width();
+            windowHeight = $(window).height();
+            
+            mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
+            mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+            
+            $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #000, #fff)');
+            });
+        </script>
     </body>
 </html>
 
-    <script>
-        $(document).mousemove(function(event) {
-        windowWidth = $(window).width();
-        windowHeight = $(window).height();
-        
-        mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
-        mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
-        
-        $('.wrapper-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #fff, #000)');
-        });
-    </script>
